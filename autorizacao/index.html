@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow">
+<title>Autorização recebida · ÓRBITA</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100svh;background:#f1f7fa;color:#092635;font-family:"Segoe UI",Arial,sans-serif;display:flex;flex-direction:column}header{padding:30px 6vw;display:flex;align-items:center;gap:12px}.logo{width:44px;height:44px;background:#007d94;border-radius:13px;color:#91f5f6;display:grid;place-items:center}.logo svg{width:30px;height:30px}.brand b{font-size:19px;letter-spacing:3px}.brand small{display:block;font-size:11px;color:#637d8d;margin-top:4px}main{flex:1;display:grid;place-items:center;padding:24px 20px 60px;position:relative;overflow:hidden}main:before{content:"";position:absolute;width:700px;height:700px;border:1px solid #dbe9ed;border-radius:50%;z-index:0}main:after{content:"";position:absolute;width:940px;height:940px;border:1px solid #e2edf0;border-radius:50%;z-index:0}.card{position:relative;z-index:1;width:min(100%,560px);background:white;border:1px solid #e0eaef;border-radius:24px;padding:48px;box-shadow:0 20px 70px #063b4c0c}.badge{width:76px;height:76px;border-radius:50%;background:#e5f6f0;color:#07805e;display:grid;place-items:center;margin-bottom:28px}.badge svg{width:36px;height:36px}.eyebrow{color:#07805e;font-size:12px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase}h1{font-size:34px;line-height:1.15;letter-spacing:-1px;margin:12px 0 18px}p{font-size:16px;line-height:1.7;color:#5d7585;margin:0}.steps{background:#f3f8fa;border-radius:14px;padding:22px;margin:28px 0;display:grid;gap:16px}.step{display:flex;gap:13px;align-items:center;font-size:14px;line-height:1.5}.number{width:27px;height:27px;flex-shrink:0;border-radius:50%;background:#dceff2;color:#00758b;font-weight:700;display:grid;place-items:center}.note{font-size:13px;color:#758996;border-top:1px solid #edf2f5;padding-top:20px}footer{text-align:center;padding:24px;color:#7a919e;font-size:12px}.error .badge{background:#fff0e6;color:#a45d22}.error .eyebrow{color:#a45d22}@media(max-width:600px){header{padding:22px}.card{padding:30px 25px;border-radius:20px}h1{font-size:29px}main{padding:16px 20px 28px}}
+</style>
+</head>
+<body>
+<header><div class="logo"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="16" cy="16" r="5"></circle><path d="M8 5C-3 12 4 31 17 28M24 27C36 18 28-1 15 4"></path><circle cx="9" cy="5" r="3"></circle><circle cx="24" cy="27" r="3"></circle></svg></div><div class="brand"><b>ÓRBITA</b><small>Inteligência em Movimento</small></div></header>
+<main><section class="card" aria-labelledby="title"><div class="badge"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 16 6 6L25 9"></path></svg></div><span class="eyebrow" id="status">Autorização concluída</span><h1 id="title">Tudo certo.<br>Vamos conectar sua conta.</h1><p id="description">Recebemos sua autorização. Agora falta selecionar a conta que você deseja acompanhar no ÓRBITA.</p><div class="steps" id="steps"><div class="step"><span class="number">1</span><span>Volte ao aplicativo <strong>ÓRBITA</strong>.</span></div><div class="step"><span class="number">2</span><span>Em <strong>Configurações</strong>, selecione a conta autorizada.</span></div></div><p class="note">Você pode fechar esta aba e continuar no aplicativo.</p></section></main>
+<footer>ÓRBITA · Inteligência em Movimento</footer>
+<script>
+// Only fixed presentation states are accepted. No account data or credentials are received.
+const state=new URLSearchParams(location.search).get('resultado');
+if(state&&state!=='sucesso'){
+ const states={cancelado:['Autorização cancelada','Você pode tentar novamente.','Volte ao ÓRBITA e clique em Conectar quando quiser autorizar sua conta.'],expirado:['Autorização expirada','Vamos começar de novo.','Volte ao ÓRBITA e inicie uma nova conexão para continuar.'],erro:['Não foi possível concluir','Vamos tentar novamente.','Volte ao ÓRBITA e inicie uma nova conexão. Se o problema continuar, entre em contato com o suporte.']};
+ const content=states[state]||states.erro;document.querySelector('.card').classList.add('error');document.getElementById('status').textContent=content[0];document.getElementById('title').textContent=content[1];document.getElementById('description').textContent=content[2];document.getElementById('steps').hidden=true;document.querySelector('.badge').textContent='!';document.title=content[0]+' · ÓRBITA';
+}
+</script>
+
+
+</body></html>
